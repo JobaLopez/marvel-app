@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeroGridComponent } from './components/hero-grid/hero-grid.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroGridComponent
   ],
   imports: [
     BrowserModule,
