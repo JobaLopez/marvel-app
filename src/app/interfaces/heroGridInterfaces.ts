@@ -1,4 +1,4 @@
-interface RootObject {
+export interface GridData {
   code: number;
   status: string;
   copyright: string;
@@ -8,7 +8,7 @@ interface RootObject {
   etag: string;
 }
 
-interface Data {
+export interface Data {
   offset: number;
   limit: number;
   total: number;
@@ -16,7 +16,7 @@ interface Data {
   results: Hero[];
 }
 
-interface Hero {
+export interface Hero {
   id: number;
   name: string;
   description: string;
@@ -30,37 +30,37 @@ interface Hero {
   series: CESData;
 }
 
-interface Stories {
+export interface Stories {
   available: number;
   returned: number;
   collectionURI: string;
   items: StoriesItem[];
 }
 
-interface StoriesItem {
+export interface StoriesItem {
   resourceURI: string;
   name: string;
   type: string;
 }
 
-interface CESData {
+export interface CESData {
   available: number;
   returned: number;
   collectionURI: string;
   items: CESDataItem[];
 }
 
-interface CESDataItem {
+export interface CESDataItem {
   resourceURI: string;
   name: string;
 }
 
-interface Thumbnail {
+export interface Thumbnail {
   path: string;
   extension: string;
 }
 
-interface Url {
+export interface Url {
   type: string;
   url: string;
 }
