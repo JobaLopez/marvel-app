@@ -68,7 +68,7 @@ export class HeroGridComponent implements OnInit {
     });
 
     if (searchName) {
-      const newParams = params.append('name', searchName);
+      const newParams = params.append('nameStartsWith', searchName);
       return newParams;
     }
 
