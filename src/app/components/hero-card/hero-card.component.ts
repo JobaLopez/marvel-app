@@ -12,5 +12,7 @@ export class HeroCardComponent implements OnInit {
   heroName = this.hero.name;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.hero);
+  }
 }
