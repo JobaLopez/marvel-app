@@ -1,7 +1,6 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #882e2e;
   height: 300px;
   padding-bottom: 5px;
   cursor: pointer;
@@ -9,7 +8,14 @@
   align-items: center;
   text-align: center;
   justify-content: flex-start;
-  border-radius: 3px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.18);
+  transition: scale 0.3s;
+}
+
+.card:hover {
+  scale: 1.07;
 }
 
 .card-img {
@@ -21,6 +27,7 @@
 
 .card-name {
   font-size: large;
-  color: white;
+  color: black;
   margin: auto;
+  padding: 0px 10px;
 }
