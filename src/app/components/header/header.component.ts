@@ -29,8 +29,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   search(searchName: string) {
-    console.log('search');
-
     this.service.sendSearchEvent(searchName);
   }
 }

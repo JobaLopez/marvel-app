@@ -45,7 +45,6 @@ export class HeroGridComponent implements OnInit {
     }
 
     params = this.createParams(this.nameToSearch);
-    console.log('offset', this.offset);
 
     if (
       this.heroes.length == 0 ||
