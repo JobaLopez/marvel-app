@@ -1,6 +1,7 @@
 .info-wrapper {
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .main-info,

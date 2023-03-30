@@ -31,12 +31,14 @@ export class HeroDetailsComponent implements OnInit {
         data.data.results[0].thumbnail.extension;
     });
     this.service.getComics(this.id).subscribe((data) => {
-      for (let i = 0; i < 4; i++) {
-        if (i > data.data.results.length) {
-          break;
+      if (data.data.results.length !== 0) {
+        for (let i = 0; i < 4; i++) {
+          if (i > data.data.results.length) {
+            break;
+          }
+          const comic = data.data.results[i];
+          this.comics.push(comic);
         }
-        const comic = data.data.results[i];
-        this.comics.push(comic);
       }
     });
   }

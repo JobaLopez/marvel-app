@@ -9,11 +9,12 @@
         </p>
       </div>
     </div>
-    <div class="secondary-info">
+    <div *ngIf="comics.length > 0" class="secondary-info">
       <section *ngFor="let comic of comics" class="comic-info">
         <img
           class="comic-cover"
           src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}"
+          loading="lazy"
           alt=""
         />
         <span class="comic-title">
