@@ -1,13 +1,7 @@
 <main class="main">
   <div class="wrapper">
     <section class="grid">
-      <hero-card></hero-card>
-      <hero-card></hero-card>
-      <hero-card></hero-card>
-      <hero-card></hero-card>
-      <hero-card></hero-card>
-      <hero-card></hero-card>
-      <hero-card></hero-card>
+      <hero-card *ngFor="let hero of heroes" [hero]="hero"></hero-card>
     </section>
   </div>
 </main>

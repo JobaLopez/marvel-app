@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Hero } from 'src/app/interfaces/heroGridInterfaces';
 
 @Component({
   selector: 'hero-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-card.component.css'],
 })
 export class HeroCardComponent implements OnInit {
+  @Input() hero!: Hero;
+  heroImg = this.hero.thumbnail.path + '.' + this.hero.thumbnail.extension;
+  heroName = this.hero.name;
   constructor() {}
 
   ngOnInit(): void {}

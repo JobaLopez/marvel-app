@@ -1,5 +1,6 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Hero } from 'src/app/interfaces/heroGridInterfaces';
 import { HeroServiceService } from 'src/app/services/hero-service.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { HeroServiceService } from 'src/app/services/hero-service.service';
 export class HeroGridComponent implements OnInit {
   private limit = 30;
   private offset = 0;
+  heroes!: Hero[];
 
   constructor(private service: HeroServiceService) {}
 
@@ -26,13 +28,14 @@ export class HeroGridComponent implements OnInit {
     if (!firstLoad) {
       this.offset += this.limit;
     }
+
     if (searchName) {
       const newParams = finalParams.append('name', searchName);
       finalParams = newParams;
     }
 
     this.service.getHeroes(finalParams).subscribe((gridData) => {
-      console.log(gridData);
+      this.heroes = gridData.data.results;
     });
   }
 }
