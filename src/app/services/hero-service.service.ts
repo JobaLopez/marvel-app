@@ -14,6 +14,7 @@ export class HeroServiceService {
   constructor(private http: HttpClient) {}
 
   getHeroes(params: HttpParams): Observable<ArrayBuffer> {
+    params.append('apikey', this.publicKey);
     const options = { params };
     return this.http.get<ArrayBuffer>(this.url + 'characters', options);
   }
