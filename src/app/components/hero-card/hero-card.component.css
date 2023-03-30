@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #882e2e;
+  height: 300px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  border-radius: 3px;
+}
+
+.card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.card-name {
+  font-size: large;
+  color: white;
+  margin: auto;
+}
