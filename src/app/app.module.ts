@@ -8,6 +8,7 @@ import { HeroDetailsComponent } from './components/hero-details/hero-details.com
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeroGridComponent,
     HeroDetailsComponent,
     HeroCardComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
