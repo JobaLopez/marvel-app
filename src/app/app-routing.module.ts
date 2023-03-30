@@ -5,7 +5,7 @@ import { HeroGridComponent } from './components/hero-grid/hero-grid.component';
 
 const routes: Routes = [
   { path: '', component: HeroGridComponent },
-  { path: 'details:id', component: HeroDetailsComponent },
+  { path: 'details/:id', component: HeroDetailsComponent },
 ];
 
 @NgModule({
