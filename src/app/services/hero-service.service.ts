@@ -21,4 +21,8 @@ export class HeroServiceService {
   getHeroDetails(id: number) {
     return this.http.get<GridData>(this.url + 'characters/' + id);
   }
+
+  getComic(id: number) {
+    return this.http.get<GridData>(this.url + 'comics/' + id);
+  }
 }

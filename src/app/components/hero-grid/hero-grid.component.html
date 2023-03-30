@@ -4,4 +4,6 @@
       <hero-card *ngFor="let hero of heroes" [hero]="hero"></hero-card>
     </section>
   </div>
+  <span *ngIf="lastEntryLoaded" style="height: 200px; color: red"></span>
+  <div infiniteScroll (scrolled)="getHeroes()"></div>
 </main>
