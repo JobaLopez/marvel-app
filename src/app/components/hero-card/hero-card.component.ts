@@ -8,11 +8,13 @@ import { Hero } from 'src/app/interfaces/heroGridInterfaces';
 })
 export class HeroCardComponent implements OnInit {
   @Input() hero!: Hero;
-  heroImg = this.hero.thumbnail.path + '.' + this.hero.thumbnail.extension;
-  heroName = this.hero.name;
+  heroImg!: string;
+  heroName!: string;
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.hero);
+    this.heroImg =
+      this.hero.thumbnail.path + '.' + this.hero.thumbnail.extension;
+    this.heroName = this.hero.name;
   }
 }
