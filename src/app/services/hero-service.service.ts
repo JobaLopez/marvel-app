@@ -6,7 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root',
 })
 export class HeroServiceService {
-  url = 'http://gateway.marvel.com/v1/public/';
+  url = 'https://gateway.marvel.com/v1/public/';
   publicKey = '93307aa340a5cc11263bd2a7ff5905cb';
 
   // https://gateway.marvel.com:443/v1/public/characters?name=ironamn&orderBy=name&limit=30&offset=0&apikey=
@@ -15,6 +15,6 @@ export class HeroServiceService {
 
   getHeroes(params: HttpParams): Observable<ArrayBuffer> {
     const options = { params };
-    return this.http.get<ArrayBuffer>(this.url, options);
+    return this.http.get<ArrayBuffer>(this.url + 'characters', options);
   }
 }
