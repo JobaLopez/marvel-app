@@ -23,6 +23,7 @@
   height: 250px;
   object-fit: cover;
   padding: 10px;
+  padding-bottom: 0px;
 }
 
 .card-name {
