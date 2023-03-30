@@ -6,19 +6,23 @@ import { AppComponent } from './app.component';
 import { HeroGridComponent } from './components/hero-grid/hero-grid.component';
 import { HeroDetailsComponent } from './components/hero-details/hero-details.component';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroGridComponent,
     HeroDetailsComponent,
-    HeroCardComponent
+    HeroCardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InfiniteScrollModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
