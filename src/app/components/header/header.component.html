@@ -1,9 +1,12 @@
-<header>
-  <a
-    routerLink=""
-    style="padding: 10px; background-color: aqua; border-radius: 9999px"
-    >Atrás</a
-  >
-  <input type="text" name="heroName" id="heroName" />
-  <button (click)="search()">Search</button>
+<header class="header">
+  <div class="wrapper header-wrapper">
+    <img src="../../../assets/marvel.svg" alt="" width="100px" />
+    <div class="header-buttons-wrapper">
+      <a *ngIf="backButton" routerLink="" class="header-button"> Atrás </a>
+      <div *ngIf="searchBar" class="search-bar">
+        <input class="search-input" type="text" name="heroName" id="heroName" />
+        <button class="header-button" (click)="search()">Buscar</button>
+      </div>
+    </div>
+  </div>
 </header>
