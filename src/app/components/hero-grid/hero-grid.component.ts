@@ -21,15 +21,17 @@ export class HeroGridComponent implements OnInit {
     const params: HttpParams = new HttpParams({
       fromObject: { orderBy: 'name', limit: this.limit, offset: this.offset },
     });
+    let finalParams = params;
 
     if (!firstLoad) {
       this.offset += this.limit;
     }
     if (searchName) {
-      params.append('name', searchName);
+      const newParams = finalParams.append('name', searchName);
+      finalParams = newParams;
     }
 
-    this.service.getHeroes(params).subscribe((gridData) => {
+    this.service.getHeroes(finalParams).subscribe((gridData) => {
       console.log(gridData);
     });
   }

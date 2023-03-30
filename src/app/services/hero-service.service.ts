@@ -13,11 +13,11 @@ export class HeroServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getHeroes(params: HttpParams): Observable<ArrayBuffer> {
-    params.append('apikey', this.publicKey);
-    console.log(params);
+  getHeroes(ogParams: HttpParams): Observable<ArrayBuffer> {
+    const paramsWithApikey = ogParams.append('apikey', this.publicKey);
+    console.log(paramsWithApikey);
 
-    const options = { params };
+    const options = { params: paramsWithApikey };
     return this.http.get<ArrayBuffer>(this.url + 'characters', options);
   }
 }
