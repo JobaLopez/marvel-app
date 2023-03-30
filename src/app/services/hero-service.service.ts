@@ -18,5 +18,7 @@ export class HeroServiceService {
     return this.http.get<GridData>(this.url + 'characters', options);
   }
 
-  getHeroDetails() {}
+  getHeroDetails(id: number) {
+    return this.http.get<GridData>(this.url + 'characters/' + id);
+  }
 }
