@@ -1,22 +1,25 @@
 <main class="main">
   <div class="wrapper info-wrapper">
     <div class="main-info">
-      <img src="../../../assets/prueba.jpg" alt="" class="hero-img" />
+      <img src="{{ img }}" alt="" class="hero-img" />
       <div>
-        <h1>Adam Warlcok</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-          quisquam quasi omnis aperiam hic consequatur ab similique eius
-          assumenda. Beatae a officia iusto sed, nihil temporibus illo eligendi
-          eaque eveniet.
+        <h1 class="name">{{ name }}</h1>
+        <p *ngIf="description" class="description">
+          {{ description }}
         </p>
       </div>
     </div>
     <div class="secondary-info">
-      <section class="comic-info">Card1</section>
-      <section class="comic-info">Card2</section>
-      <section class="comic-info">Card3</section>
-      <section class="comic-info">Card4</section>
+      <section *ngFor="let comic of comics" class="comic-info">
+        <img
+          class="comic-cover"
+          src="{{ comic.thumbnail.path + '.' + comic.thumbnail.extension }}"
+          alt=""
+        />
+        <span class="comic-title">
+          {{ comic.title }}
+        </span>
+      </section>
     </div>
   </div>
 </main>

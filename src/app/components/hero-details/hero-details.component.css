@@ -16,11 +16,68 @@
   position: relative;
   overflow: hidden;
   padding: 50px;
+}
+
+.main-info,
+.comic-info {
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.18);
 }
 
+.secondary-info {
+  padding-top: 20px;
+}
+
 .hero-img {
   width: 200px;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.description {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.comic-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  transition: scale 0.3s;
+  padding: 10px;
+}
+
+.comic-info:hover {
+  scale: 1.2;
+}
+
+.comic-cover {
+  width: 200px;
+}
+
+.comic-title {
+  width: 200px;
+  height: 55px;
+  padding: 10px;
+  font-size: 15px;
+  padding-bottom: 0px;
+}
+
+@media (max-width: 1000px) {
+  .main-info,
+  .secondary-info {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-info {
+    padding: 20px;
+  }
 }

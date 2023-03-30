@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GridData } from '../interfaces/heroGridInterfaces';
+import { ComicDataWrapper } from '../interfaces/comicsInterfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -19,19 +20,29 @@ export class HeroServiceService {
     return this.http.get<GridData>(this.url + 'characters', options);
   }
 
-  getHeroDetails(id: number) {
-    return this.http.get<GridData>(this.url + 'characters/' + id);
+  getHeroDetails(id: string): Observable<GridData> {
+    const params: HttpParams = new HttpParams({
+      fromObject: { apikey: this.publicKey },
+    });
+    const options = { params };
+
+    return this.http.get<GridData>(this.url + 'characters/' + id, options);
   }
 
-  getComic(id: number) {
-    return this.http.get<GridData>(this.url + 'comics/' + id);
+  getComics(id: string): Observable<ComicDataWrapper> {
+    const params: HttpParams = new HttpParams({
+      fromObject: { characters: id, apikey: this.publicKey },
+    });
+    const options = { params };
+
+    return this.http.get<ComicDataWrapper>(this.url + 'comics', options);
   }
 
   sendSearchEvent(name: string) {
     this.nameToSearch.next(name);
   }
 
-  getSearchEvent(): Observable<any> {
+  getSearchEvent(): Observable<string> {
     return this.nameToSearch.asObservable();
   }
 }
