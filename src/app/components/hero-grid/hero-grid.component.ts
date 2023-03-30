@@ -14,16 +14,17 @@ export class HeroGridComponent implements OnInit {
   private offset = 0;
   private totalHeroes: number | undefined = undefined;
   public lastEntryLoaded: boolean;
+  public nameToSearch: string = '';
   private clickEventsubscription: Subscription;
   public heroes: Hero[] = [];
   public noResults: boolean = false;
 
   constructor(private service: HeroServiceService) {
-    this.lastEntryLoaded = true;
+    this.lastEntryLoaded = false;
     this.clickEventsubscription = this.service
       .getClickEvent()
       .subscribe((searchName) => {
-        this.getHeroes(false, searchName);
+        this.getHeroes(true, searchName);
       });
   }
 
@@ -33,15 +34,18 @@ export class HeroGridComponent implements OnInit {
 
   getHeroes(firstLoad: boolean, searchName?: string) {
     let params: HttpParams = new HttpParams();
+    this.nameToSearch = searchName ? searchName : '';
 
-    if (searchName || firstLoad || searchName == '') {
+    if (firstLoad) {
       this.offset = 0;
       this.heroes = [];
+      this.lastEntryLoaded = false;
     } else {
       this.offset = this.offset += this.limit;
     }
 
-    params = this.createParams(searchName);
+    params = this.createParams(this.nameToSearch);
+    console.log('offset', this.offset);
 
     if (
       this.heroes.length == 0 ||

@@ -5,3 +5,10 @@
   grid-auto-rows: minmax(100px, auto);
   padding-bottom: 25px;
 }
+
+.message {
+  padding: 20px;
+  font-size: 25px;
+  grid-column: 1/-1;
+  text-align: center;
+}
