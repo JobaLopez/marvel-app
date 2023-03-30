@@ -7,8 +7,9 @@ import { GridData } from '../interfaces/heroGridInterfaces';
   providedIn: 'root',
 })
 export class HeroServiceService {
-  url = 'https://gateway.marvel.com/v1/public/';
-  publicKey = '93307aa340a5cc11263bd2a7ff5905cb';
+  private nameToSearch = new Subject<any>();
+  private url = 'https://gateway.marvel.com/v1/public/';
+  private publicKey = '93307aa340a5cc11263bd2a7ff5905cb';
 
   constructor(private http: HttpClient) {}
 
@@ -26,13 +27,11 @@ export class HeroServiceService {
     return this.http.get<GridData>(this.url + 'comics/' + id);
   }
 
-  private subject = new Subject<any>();
-
-  sendClickEvent(name: string) {
-    this.subject.next(name);
+  sendSearchEvent(name: string) {
+    this.nameToSearch.next(name);
   }
 
-  getClickEvent(): Observable<any> {
-    return this.subject.asObservable();
+  getSearchEvent(): Observable<any> {
+    return this.nameToSearch.asObservable();
   }
 }

@@ -31,6 +31,6 @@ export class HeaderComponent implements OnInit {
   search(searchName: string) {
     console.log('search');
 
-    this.service.sendClickEvent(searchName);
+    this.service.sendSearchEvent(searchName);
   }
 }

@@ -22,7 +22,7 @@ export class HeroGridComponent implements OnInit {
   constructor(private service: HeroServiceService) {
     this.lastEntryLoaded = false;
     this.clickEventsubscription = this.service
-      .getClickEvent()
+      .getSearchEvent()
       .subscribe((searchName) => {
         this.getHeroes(true, searchName);
       });
