@@ -2,8 +2,11 @@
   <div class="wrapper">
     <section class="grid">
       <hero-card *ngFor="let hero of heroes" [hero]="hero"></hero-card>
+      <span *ngIf="noResults"
+        >No hay resultados que coincidan con la búsqueda</span
+      >
     </section>
   </div>
   <span *ngIf="lastEntryLoaded" style="height: 200px; color: red"></span>
-  <div infiniteScroll (scrolled)="getHeroes()"></div>
+  <div infiniteScroll (scrolled)="getHeroes(false)"></div>
 </main>

@@ -23,10 +23,11 @@
 
 .header-button {
   padding: 15px;
-  background-color: aqua;
+  background-color: rgb(233, 53, 53);
   border-radius: 9999px;
   border: none;
   cursor: pointer;
+  color: white;
 }
 .search-bar {
   display: flex;

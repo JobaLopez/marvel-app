@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GridData } from '../interfaces/heroGridInterfaces';
 
@@ -24,5 +24,15 @@ export class HeroServiceService {
 
   getComic(id: number) {
     return this.http.get<GridData>(this.url + 'comics/' + id);
+  }
+
+  private subject = new Subject<any>();
+
+  sendClickEvent(name: string) {
+    this.subject.next(name);
+  }
+
+  getClickEvent(): Observable<any> {
+    return this.subject.asObservable();
   }
 }

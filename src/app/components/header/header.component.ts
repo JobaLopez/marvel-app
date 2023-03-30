@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { HeroServiceService } from 'src/app/services/hero-service.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,9 @@ import { NavigationEnd, Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   backButton = false;
   searchBar = false;
+  nameToSearch = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: HeroServiceService) {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (router.url === '/') {
@@ -26,7 +28,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  search() {
+  search(searchName: string) {
     console.log('search');
+
+    this.service.sendClickEvent(searchName);
   }
 }

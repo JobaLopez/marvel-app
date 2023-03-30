@@ -4,8 +4,16 @@
     <div class="header-buttons-wrapper">
       <a *ngIf="backButton" routerLink="" class="header-button"> Atrás </a>
       <div *ngIf="searchBar" class="search-bar">
-        <input class="search-input" type="text" name="heroName" id="heroName" />
-        <button class="header-button" (click)="search()">Buscar</button>
+        <input
+          class="search-input"
+          type="text"
+          name="heroName"
+          id="heroName"
+          #nameToSearch
+        />
+        <button class="header-button" (click)="search(nameToSearch.value)">
+          Buscar
+        </button>
       </div>
     </div>
   </div>
